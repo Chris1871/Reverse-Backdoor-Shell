@@ -11,7 +11,10 @@ Run reverse_backdoor.py on victims computer.  Enter in the IP Address and Port a
 reverse_backdoor.py can be turned into an executable and run on any computer with a Python intepretor.
 
 The backdoor can run system terminal commands, change directories, and upload/download files.
-To upload files, type upload + file name
-To download files, type download + file name
-Enter "exit" to quit the program
+
+To upload files, type upload + file name.
+
+To download files, type download + file name.
+
+Enter "exit" to quit the program.
 

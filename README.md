@@ -12,9 +12,9 @@ reverse_backdoor.py can be turned into an executable and run on any computer wit
 
 The backdoor can run system terminal commands, change directories, and upload/download files.
 
-To upload files, type upload + file name.
+To upload files, type upload <file name>.
 
-To download files, type download + file name.
+To download files, type download <file name>.
 
 Enter "exit" to quit the program.
 
